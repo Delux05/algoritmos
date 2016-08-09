@@ -1,0 +1,43 @@
+#include "stdafx.h"
+#include <iostream>
+#include  "conio.h"
+
+using namespace std;
+
+void main(){
+	int a,b,r,opcion;
+	cout<<"ingrese un valor A: ";
+	cin>>a;
+	cout<<"ingrese otro valor B: ";
+	cin>>b;
+	do
+	{
+		cout<<endl<<"****** M E N U *****";
+		cout<<endl<<"================================================";
+		cout<<endl<<"1.-sumar";
+		cout<<endl<<"2.-restar";
+		cout<<endl<<"3.-dividir";
+		cout<<endl<<"4.-multiplicar";
+		cout<<endl<<"0.-salir";
+		cout<<endl<<"================================================";
+		cout<<endl<<"selecion una opcion: ";
+		cin>>opcion;
+
+		switch(opcion)
+		{
+		  case 1:r=a+b;
+			  break;
+		  case 2:r=a-b;
+			  break;
+		  case 3:r=a/b;
+			  break;
+		  case 4:r=a*b;
+			  break;
+			  case 0: cout << "Salir";break;
+	    default: cout << "Opcion invalida" << endl;
+		}
+		 cout << "El resultado es " << r << endl;
+	}
+	while(opcion!=0);
+	getch();
+}
