@@ -1,0 +1,28 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+void cargar(int vec[],int n){
+	int i;
+	for(i=0;i<n;i++){
+		cout<<"introducir un numero: ";
+		cin>>vec[i];
+	}
+} 
+int promedio(int vec[], int n){
+	int p,i,s;
+	for(i=0;i<n;i++){
+		s=s+vec[i];
+	}
+	p=s/n;
+	return(p);
+}
+void main(){
+	int vec[100],r,n;
+	cout<<"introdusca los elemto del vector: ";
+	cin>>n;
+	cargar(vec,n);
+	r=promedio(vec,n);
+	cout<<"el promedio es---->>: "<<r;
+	getch();
+}
