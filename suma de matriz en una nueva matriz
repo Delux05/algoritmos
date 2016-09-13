@@ -1,0 +1,56 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+void cargar(int mat1[30][30],int mat2[30][30],int n,int m){
+	int i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			cout<<"ingrese los elemento de la matriz 1: ";
+			cin>>mat1[i][j];
+			cout<<"ingrese los elemento de la matriz 2: ";
+			cin>>mat2[i][j];
+		}
+	}
+}
+
+void mostrar(int mat1[30][30],int mat2[30][30],int n,int m){
+	int i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			cout<<"MAT 1["<<i<<"]["<<j<<"]=="<<mat1[i][j]<<endl;
+			cout<<"MAT 2["<<i<<"]["<<j<<"]=="<<mat2[i][j]<<endl;
+		}
+	}
+}
+
+void suma(int mat1[30][30],int mat2[30][30],int n,int m){
+	int mat3[30][30],i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			mat3[i][j]=mat1[i][j]+mat2[i][j];
+			cout<<"MAT 3["<<i<<"]["<<j<<"]=="<<mat3[i][j]<<endl;
+		}
+	}
+	
+}
+
+void main(){
+	int mat1[30][30],mat2[30][30],n,m;
+	do
+	{
+		cout<<"ingrese la fila de la matriz: ";
+	    cin>>n;
+
+	}while((n<=0)||(n>30));
+	do
+	{
+		cout<<"ingrese la columna de la matriz: ";
+	    cin>>m;
+	}while((m<=0)||(m>30));	
+	cargar(mat1,mat2,n,m);
+	mostrar(mat1,mat2,n,m);
+	suma(mat1,mat2,n,m);
+	getch();
+}
+
