@@ -1,0 +1,207 @@
+#include <iostream>
+
+#include <conio.h>
+
+
+
+using namespace std;
+
+#define N 10
+
+struct Vector
+
+{
+
+	int vector[10];
+
+	int tam;
+
+};
+
+bool Verificar_Primo(int num)
+
+{
+
+	bool k = true;
+
+	for (int i = 2; i < num; i++)
+
+	{
+
+		if ((num%i) == 0)
+
+		{
+
+			k = false;
+
+		}
+
+	}
+
+	return k;
+
+}
+
+void Cargar(Vector Matriz[N][N], int fil,int col)
+
+{
+
+	for (int i=0;i<fil;i++)
+
+	{
+
+		for (int j=0;j<col;j++)
+
+		{
+
+			cout << "Ingrese el Tamanho del Vector: ";
+
+			cin >> Matriz[i][j].tam;
+
+			for (int k=0;k<Matriz[i][j].tam;k++)
+
+			{
+
+				cin >> Matriz[i][j].vector[k];
+
+			}
+
+		}
+
+	}
+
+}
+
+void Eliminar_Primos(Vector Matriz[N][N], int fil, int col)
+
+{
+
+	int s = 0;
+
+	for (int i=0;i<fil;i++)
+
+	{
+
+		for (int j=0;j<col;j++)
+
+		{
+
+			for (int k=0;k<Matriz[i][j].tam;k++)
+
+			{
+
+				if (Verificar_Primo(Matriz[i][j].vector[k])==true)
+
+				{
+
+					s++;
+
+				}
+
+			}
+
+			if (s>(Matriz[i][j].tam/2))
+
+			{
+
+				int u = 0;
+
+				while (u<Matriz[i][j].tam)
+
+				{
+
+					if (Verificar_Primo(Matriz[i][j].vector[u])==true)
+
+					{
+
+						for (int v = u; v < Matriz[i][j].tam - 1; v++)
+
+						{
+
+							Matriz[i][j].vector[v] = Matriz[i][j].vector[v + 1];
+
+						}
+
+						Matriz[i][j].tam = Matriz[i][j].tam - 1;
+
+				   }
+
+					else
+
+					{
+
+						u++;
+
+					}
+
+				}
+
+			}
+
+			s = 0;
+
+		}
+
+	}
+
+}
+
+void Mostrar(Vector Matriz[N][N], int fil, int col)
+
+{
+
+	for (int i = 0; i<fil; i++)
+
+	{
+
+		for (int j = 0; j<col; j++)
+
+		{
+
+			for (int k = 0; k<Matriz[i][j].tam; k++)
+
+			{
+
+				cout<< Matriz[i][j].vector[k];
+
+			}
+
+			cout << "  ";
+
+		}
+
+		cout << endl;
+
+	}
+
+}
+
+int main()
+
+{
+
+	Vector Matriz[N][N];
+
+	int fil;
+
+	int col;
+
+	cout << "Ingrese la Fila de la Matriz: ";
+
+	cin >> fil;
+
+	cout << "Ingresela Columna de la Matriz: ";
+
+	cin >> col;
+
+	Cargar(Matriz, fil, col);
+
+	Eliminar_Primos(Matriz, fil, col);
+
+	Mostrar(Matriz, fil, col);
+
+	_getch();
+
+	return 0;
+
+}
